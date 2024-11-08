@@ -27,7 +27,7 @@ const View = async ({ id }: { id: string }) => {
       <div className="absolute -top-2 -right-2">
         <Ping />
       </div>
-      <p className="view-text"><span className="font-black">Views: {totalViews}</span></p>
+      <p className="view-text"><span className="font-black">Views: {totalViews || 0}</span></p>
     </div>
   )
 }
