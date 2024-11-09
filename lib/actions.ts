@@ -17,8 +17,6 @@ export const createPitch = async (
       status: "ERROR",
     });
 
-    console.log("THIS IS PRINTed INSIDE ACTION", JSON.stringify(session.id))
-
   const { title, description, category, link } = Object.fromEntries(
     Array.from(form).filter(([key]) => key !== "pitch")
   );
@@ -47,7 +45,6 @@ export const createPitch = async (
       error: "",
       status: "SUCCESS",
     });
-
   } catch (error) {
     console.log(error);
     return parseServerActionResponse({

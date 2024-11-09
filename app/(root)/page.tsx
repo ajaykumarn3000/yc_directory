@@ -17,24 +17,9 @@ export default async function Home({
   // ! DUE TO CACHE ISSUE, SESSION IS NOT BEING UPDATED WITHIN 60 SECONDS OF SIGN-IN
   // ? https://youtu.be/Zq5fmkH0T78?t=13621
 
-  console.log(session?.id);
 
   // const posts = await client.fetch(STARTUPS_QUERY);
   const { data: posts } = await sanityFetch({ query: STARTUPS_QUERY, params });
-
-  // const posts = [
-  //   {
-  //     _createdAt: new Date(), views: 55, author: {
-  //       _id: 1,
-  //       name: "Ajaykumar Nadar"
-  //     },
-  //     _id: 1,
-  //     description: "This is a description",
-  //     image: "https://cdn.ebaumsworld.com/mediaFiles/picture/2452130/85386506.jpg",
-  //     category: "Robots",
-  //     title: "We Robots"
-  //   },
-  // ]
 
   return (
     <>

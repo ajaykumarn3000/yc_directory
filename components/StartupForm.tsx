@@ -15,6 +15,10 @@ import { createPitch } from "@/lib/actions";
 const StartupForm = () => {
 
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
+  const [category, setCategory] = useState("");
+  const [link, setLink] = useState("");
   const [pitch, setPitch] = useState("");
   const { toast } = useToast()
   const router = useRouter();
@@ -57,7 +61,7 @@ const StartupForm = () => {
         <label htmlFor="title" className="startup-form_label">
           Title
         </label>
-        <Input id="title" name="title" className="startup-form_input" required placeholder="Startup Title" type="text" />
+        <Input value={title} onChange={(event) => setTitle(event.target.value as string)} id="title" name="title" className="startup-form_input" required placeholder="Startup Title" type="text" />
         {errors.title && <p className="startup-form_error">
           {errors.title}
         </p>}
@@ -67,7 +71,7 @@ const StartupForm = () => {
         <label htmlFor="description" className="startup-form_label">
           Description
         </label>
-        <Textarea id="description" name="description" className="startup-form_textarea" required placeholder="Startup Description" />
+        <Textarea value={description} onChange={(event) => setDescription(event.target.value as string)} id="description" name="description" className="startup-form_textarea" required placeholder="Startup Description" />
         {errors.description && <p className="startup-form_error">
           {errors.description}
         </p>}
@@ -77,7 +81,7 @@ const StartupForm = () => {
         <label htmlFor="category" className="startup-form_label">
           Category
         </label>
-        <Input id="category" name="category" className="startup-form_input" required placeholder="Startup Category (Tech, Health, Education)" type="text" />
+        <Input value={category} onChange={(event) => setCategory(event.target.value as string)} id="category" name="category" className="startup-form_input" required placeholder="Startup Category (Tech, Health, Education)" type="text" />
         {errors.category && <p className="startup-form_error">
           {errors.category}
         </p>}
@@ -87,7 +91,7 @@ const StartupForm = () => {
         <label htmlFor="link" className="startup-form_label">
           Image URL
         </label>
-        <Input id="link" name="link" className="startup-form_input" required placeholder="Startup Image URL" type="text" />
+        <Input value={link} onChange={(event) => setLink(event.target.value as string)} id="link" name="link" className="startup-form_input" required placeholder="Startup Image URL" type="text" />
         {errors.link && <p className="startup-form_error">
           {errors.link}
         </p>}
